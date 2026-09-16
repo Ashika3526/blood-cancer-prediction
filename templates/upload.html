@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload PDF - Blood Cancer Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📄 Upload PDF Report</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="pdf" accept=".pdf">
+            <button type="submit">Upload and Predict</button>
+        </form>
+
+        {% if result is not none %}
+            <div class="result-box {{ 'positive' if result == 1 else 'negative' }}">
+                <h2>{{ '🔴 Likely Blood Cancer' if result == 1 else '🟢 Likely Normal' }}</h2>
+                {% if result == 1 %}
+                <div class="suggestions">
+                    <h3>🩺 Doctor Suggestions:</h3>
+                    <ul>
+                        <li><strong>Further Testing:</strong> Bone marrow biopsy, CT, or genetic testing.</li>
+                        <li><strong>Treatment Planning:</strong> See hematologist for therapy options.</li>
+                        <li><strong>Support:</strong> Nutrition, checkups, counseling.</li>
+                    </ul>
+                </div>
+                {% else %}
+                <div class="suggestions">
+                    <h3>✅ Health Tips:</h3>
+                    <ul>
+                        <li>Regular check-ups</li>
+                        <li>Balanced diet & exercise</li>
+                        <li>Stay informed on symptoms</li>
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="suggestions negative">
+            <strong>{{ error }}</strong>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

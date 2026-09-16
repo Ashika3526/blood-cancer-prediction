@@ -1,0 +1,151 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #e3f2fd;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+.container {
+    width: 500px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 4px;
+}
+
+.range {
+    display: block;
+    font-size: 13px;
+    color: #555;
+    margin-top: 3px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #1976D2;
+}
+
+.result-box {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+.positive {
+    background-color: #ffcdd2;
+    color: #b71c1c;
+}
+
+.negative {
+    background-color: #c8e6c9;
+    color: #1b5e20;
+}
+.range {
+    display: block;
+    font-size: 13px;
+    color: #555;
+    margin-top: 3px;
+}
+input[type="file"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+hr {
+    margin: 30px 0;
+}
+.suggestions {
+    text-align: left;
+    margin-top: 20px;
+    background-color: #fff5f5;
+    border-left: 5px solid red;
+    padding: 15px;
+    border-radius: 8px;
+}
+.suggestions h3 {
+    color: #c0392b;
+}
+.suggestions ul {
+    padding-left: 20px;
+}
+.suggestions li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+.floating-box {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    width: 500px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    z-index: 999;
+}
+
+.positive {
+    border-left: 8px solid red;
+    background-color: #ffe6e6;
+}
+
+.negative {
+    border-left: 8px solid green;
+    background-color: #e6ffed;
+}
+.result-box {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Cancer Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🧬 Blood Cancer Prediction</h1>
+
+        <!-- Prediction Form -->
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="rbc">RBC count</label>
+                <input type="text" name="rbc" placeholder="e.g., 5.1">
+                <span class="range">(Normal: 4.2 – 6.1 ×10¹²/L)</span>
+            </div>
+
+            <div class="form-group">
+                <label for="haemoglobin">Haemoglobin</label>
+                <input type="text" name="haemoglobin" placeholder="e.g., 13.5">
+                <span class="range">(Normal: 12 – 17.5 g/dL)</span>
+            </div>
+
+            <div class="form-group">
+                <label for="platelet">Platelet count</label>
+                <input type="text" name="platelet" placeholder="e.g., 300000">
+                <span class="range">(Normal: 150,000 – 450,000 /µL)</span>
+            </div>
+
+            <div class="form-group">
+                <label for="ecg">ECG / Heart rate</label>
+                <input type="text" name="ecg" placeholder="e.g., 75">
+                <span class="range">(Normal: 60 – 100 bpm)</span>
+            </div>
+
+            <div class="form-group">
+                <label for="ldh">LDH</label>
+                <input type="text" name="ldh" placeholder="e.g., 180">
+                <span class="range">(Normal: 140 – 280 U/L)</span>
+            </div>
+
+            <!-- Predict Button -->
+            <button type="submit">Predict</button>
+        </form>
+
+        <!-- Navigate to Upload Page -->
+        <form action="/upload_page" method="get">
+            <button style="margin-top: 10px;">Continue to PDF Upload</button>
+        </form>
+
+        <!-- Prediction Result Box -->
+        {% if result is not none %}
+            <div class="{{ 'positive' if result == 1 else 'negative' }} result-box">
+                <h2>
+                    {{ '🔴 Likely Blood Cancer' if result == 1 else '🟢 Likely Normal' }}
+                </h2>
+
+                {% if result == 1 %}
+                <div class="suggestions">
+                    <h3>🩺 Doctor Suggestions:</h3>
+                    <ul>
+                        <li><strong>Further Testing:</strong> Confirm with a bone marrow biopsy, CT scan, or genetic testing.</li>
+                        <li><strong>Start Treatment Planning:</strong> Consult a hematologist/oncologist for chemotherapy, immunotherapy, or targeted therapy.</li>
+                        <li><strong>Support & Monitoring:</strong> Focus on nutrition, regular monitoring, and emotional support or counseling.</li>
+                    </ul>
+                </div>
+                {% else %}
+                <div class="suggestions">
+                    <h3>✅ Health Tips:</h3>
+                    <ul>
+                        <li><strong>Regular Check-ups:</strong> Continue with routine blood tests yearly.</li>
+                        <li><strong>Healthy Lifestyle:</strong> Maintain a balanced diet and physical activity.</li>
+                        <li><strong>Stay Informed:</strong> Be aware of early symptoms and family history.</li>
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="suggestions negative">
+            <strong>{{ error }}</strong>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
