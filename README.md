@@ -4,7 +4,7 @@ A Flask web application that predicts the likelihood of blood cancer from key bl
 
 ## 🌐 Live Demo
 
-👉 **[Open the app on Render](YOUR_RENDER_LINK_HERE)**
+👉 **[Open the app on Render](https://blood-cancer-prediction-5l3c.onrender.com/)**
 
 > Note: the app is hosted on Render's free tier, so the first load may take 30–60 seconds while the server wakes up.
 
